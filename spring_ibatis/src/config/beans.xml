@@ -48,7 +48,7 @@
             /resource/images/** = anon
             # method
             /login/validateCode = anon  
-			/login/login2 = anon
+			/login/login = anon
            	/** = user
 			</value>
 		</property>

@@ -181,7 +181,7 @@ public class LoginController {
 		// 得到主体(将登陆URL过滤掉,才可以得到主体,否则报错)
 		Subject user = SecurityUtils.getSubject();
 		// 获取用户凭证信息
-		UsernamePasswordToken token = new UsernamePasswordToken(currUser.getManagerPassword(), currUser.getManagerPassword());
+		UsernamePasswordToken token = new UsernamePasswordToken(currUser.getManagerName(), currUser.getManagerPassword());
 		// "已记住"和"已认证"是有区别的,并非是认证通过的用户
 		token.setRememberMe(true);
 		try {
@@ -193,7 +193,7 @@ public class LoginController {
 			return "redirect:/user/index";
 		} catch (Exception e) {
 			
-			return "login/login2";
+			return "login/login";
 			
 		}
 
