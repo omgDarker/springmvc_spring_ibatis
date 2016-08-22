@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Birthday">
+
+	<typeAlias alias="Birthday" type="com.ninemax.birthday.model.Birthday" />
+
+	<resultMap id="BirthdayResult" class="Birthday">
+		<result property="Id" column="Id" />
+		<result property="username" column="username" />
+		<result property="age" column="age" />
+		<result property="birthday" column="birthday" />
+	</resultMap>
+
+	<select id="selBirthday" resultClass="Birthday">
+		select * from birthday
+	</select>
+
+</sqlMap>

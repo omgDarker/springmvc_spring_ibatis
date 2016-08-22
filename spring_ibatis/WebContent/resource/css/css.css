@@ -1,0 +1,74 @@
+/* reset.css */
+body{background:#fff;color:#444;height:100%;line-height:1.4;}
+html{height:100%;overflow-y:scroll;-webkit-text-size-adjust:none;}
+body,input,button,textarea,select,h1,h2,h3,h4,h5,h6{font:12px/1.5 Arial,Tahoma,Helvetica,"\5b8b\4f53",sans-serif;}
+body,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,blockquote,th,td{margin:0;padding:0;}
+img{vertical-align:bottom;}
+/* base.css */
+a:link,a:visited,a:hover,a:active{cursor:pointer;text-decoration:none;}
+a:active,a:focus {-moz-outline:none;outline:none;ie-dummy:expression(this.hideFocus=true);}
+a:hover {text-decoration:underline;}
+li {list-style:none;}
+ol li {display:inline;}
+/*common.css*/
+.outer{position:relative; overflow:hidden; background:url(../images/outer.png) repeat-x bottom; border-bottom:solid 1px #fff; margin:0 auto;}
+.banner{position:absolute; left:50%; top:0; margin-left:-990px; height:400px; width:1980px;overflow:hidden;}
+    .flash_img {
+        overflow: hidden;
+        width: 1980px;
+        height: 200px;
+        position: relative
+    }
+    .banner{height:1000px;}
+    .flash_img .img-box {
+        position: absolute;
+    }
+    .flash_img .img-box li{float:left;}
+    .flash_img img {
+        display: block;
+    }
+    .flash_item {
+        position: absolute;
+        right: 510px;
+        bottom: 10px;
+        height: 12px;
+    }
+    .flash_item li {
+        background:url(../images/background.png) no-repeat right;
+        color: #D94B01;
+        cursor: pointer;
+        float: left;
+        font-size: 12px;
+        height: 12px;
+        line-height: 12px;
+        margin-left: 15px;
+        text-align: center;
+        width: 12px;
+    }
+    .flash_item li.on 
+    {
+        background-position:left;
+        color: #FFFFFF;
+        font-weight: bold;
+        height: 12px;
+        line-height: 12px;
+        width: 12px;
+    }
+    .flash_item li img {
+        display: block
+    }
+    .header {
+        color:red;
+        position: relative;
+        width:100%;
+        margin-left: 15px;
+        line-height: 20px;
+    }    
+/*default.css*/
+.indexNews{width:700px; height:29px; bottom:0; left:50%; position:absolute; margin-left:-670px; z-index:999;}
+.indexNews strong{color:#409dd9;float: left;}
+.indexNews strong a{color:#409dd9;text-decoration:none;}
+.indexNews .core{height:18px; line-height:18px; overflow:hidden;}
+.indexNews .core span{color:#409dd9; margin-right:20px;}
+.indexNews .core a{margin-left:10px;color:#666;}
+.outer{height:820px;}

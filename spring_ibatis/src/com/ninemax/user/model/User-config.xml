@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="User">
+
+	<typeAlias alias="User" type="com.ninemax.user.model.User" />
+	<resultMap id="UserResult" class="User">
+		<result property="userId" column="userId" />
+		<result property="userName" column="userName" />
+		<result property="age" column="age" />
+	</resultMap>
+
+	<insert id="adduser" parameterClass="User">
+		insert user(userId,userName,age,flag)
+		values(#userId#,#userName#,#age#,#flag#)
+	</insert>
+
+	<select id="selall" parameterClass="java.util.HashMap" resultClass="User">
+		select * from user where flag=#flag# limit #n#,#m#
+	</select>
+
+	<select id="selById" parameterClass="int" resultClass="User">
+		select * from user where userId=#userId#
+	</select>
+	
+	<select id="selCount"  parameterClass="int" resultClass="User">
+		select * from user where flag=#flag#
+	</select>
+	
+	<!-- 查询数据条数 -->
+	<select id="selCount2" resultClass="int">
+		select count(1) from user
+	</select>
+
+	<delete id="del" parameterClass="int">
+		delete from user where userId=#userId#
+	</delete>
+
+	<update id="update" parameterClass="User">
+		update user set
+		userName=#userName#,
+		age=#age#
+		where userId=#userId#
+	</update>
+	
+	<!-- 假删除  -->
+	<update id="falseDel" parameterClass="java.util.HashMap" >
+		update user set
+		flag=#flag#
+		where userId=#userId#
+	</update>
+
+</sqlMap>

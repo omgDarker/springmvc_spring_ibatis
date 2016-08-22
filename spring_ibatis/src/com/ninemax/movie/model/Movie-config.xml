@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Movie">
+
+	<typeAlias alias="Movie" type="com.ninemax.movie.model.Movie" />
+	<resultMap id="MovieResult" class="Movie">
+		<result property="movieId" column="movieId" />
+		<result property="movieName" column="movieName" />
+		<result property="movieTime" column="movieTime" />
+		<result property="movieMoney" column="movieMoney" />
+		<result property="movieNumber" column="movieNumber" />
+	</resultMap>
+	
+	<select id="selmovie" parameterClass="int" resultClass="Movie">
+		select * from movie where flag!=#flag#
+	</select>
+
+	<select id="selMovieById" parameterClass="int" resultClass="Movie">
+		select * from movie where movieId=#movieId#
+	</select>
+	
+	<insert id="addmovie" parameterClass="Movie">
+		insert movie(movieId,movieName,movieTime,movieMoney,movieNumber,flag)
+		values(#movieId#,#movieName#,#movieTime#,#movieMoney#,#movieNumber#,#flag#)
+	</insert>
+
+	<delete id="delmovie" parameterClass="int">
+		delete from movie where movieId=#movieId#
+	</delete>
+
+	<update id="udmovie" parameterClass="Movie">
+		update movie set
+		movieName=#movieName#,
+		movieTime=#movieTime#,
+		movieMoney=#movieMoney#,
+		movieNumber=#movieNumber#
+		where movieId=#movieId#
+	</update>
+	
+	<!-- 假删除  -->
+	<update id="falseDelMovie" parameterClass="java.util.HashMap" >
+		update movie set
+		flag=#flag#
+		where movieId=#movieId#
+	</update>
+
+</sqlMap>

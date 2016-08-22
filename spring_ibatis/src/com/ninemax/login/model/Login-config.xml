@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Login">
+
+	<typeAlias alias="Login" type="com.ninemax.login.model.Login" />
+	<resultMap id="LoginResult" class="Login">
+		<result property="managerId" column="managerId" />
+		<result property="managerName" column="managerName" />
+		<result property="managerPassword" column="managerPassword" />
+		<result property="flag" column="flag" />
+	</resultMap>
+
+	<select id="sel" parameterClass="java.util.HashMap"  resultClass="Login">
+		select * from login where managerName=#managerName# and managerPassword=#managerPassword#
+	</select>
+	
+	<select id="selByName" resultClass="Login">
+		select * from login where managerName=#managerName#
+	</select>
+	
+	<select id="selAll" resultClass="Login">
+		select * from login
+	</select>
+	
+	<update id="modifyPassword" parameterClass="java.util.HashMap" >
+		update login set
+		managerPassword=#managerPassword#
+		where managerName=#managerName#
+	</update>
+	
+</sqlMap>

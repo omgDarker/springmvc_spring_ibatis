@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="WatchMovie">
+
+	<typeAlias alias="WatchMovie" type="com.ninemax.movie.model.WatchMovie" />
+	<resultMap id="WatchMovieResult" class="WatchMovie">
+		<result property="watchmovieId" column="watchmovieId" />
+		<result property="watchmovieName" column="watchmovieName" />
+		<result property="watchmovieUrl" column="watchmovieUrl" />
+		<result property="watchmovieSource" column="watchmovieSource" />
+		<result property="flag" column="flag" />
+	</resultMap>
+
+	<select id="selectWatchMovie" parameterClass="int" resultClass="WatchMovie">
+		select * from watchmovie where flag!=#flag#
+	</select>
+	
+	<select id="selWatchMovieById" parameterClass="int" resultClass="WatchMovie">
+		select * from watchmovie where watchmovieId=#watchmovieId#
+	</select>
+	
+	<select id="selWatchMovieByPage" parameterClass="java.util.HashMap" resultClass="WatchMovie">
+		select * from watchmovie where flag=#flag# limit #n#,#m#
+	</select>
+	
+	<select id="queryCount" parameterClass="int" resultClass="int">
+		select count(*) from watchmovie where flag=#flag# 
+	</select>
+	
+	<insert id="addWatchMovie" parameterClass="WatchMovie">
+		insert
+		watchmovie(watchmovieName,watchmovieUrl,watchmovieSource,flag)
+		values(#watchmovieName#,#watchmovieUrl#,#watchmovieSource#,#flag#)
+	</insert>
+	
+	<update id="updateWatchMovie" parameterClass="WatchMovie">
+		update watchmovie set
+		watchmovieName=#watchmovieName#,
+		watchmovieUrl=#watchmovieUrl#,
+		watchmovieSource=#watchmovieSource#,
+		flag=#flag#
+		where watchmovieId=#watchmovieId#
+	</update>
+
+	<update id="falseDelWatchMovie" parameterClass="java.util.HashMap">
+		update watchmovie set
+		flag=#flag#
+		where watchmovieId=#watchmovieId#
+	</update>
+	
+</sqlMap>
