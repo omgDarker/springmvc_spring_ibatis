@@ -31,7 +31,7 @@ public class EmailController {
 		// 文件读取
 		Properties prop = new Properties();
 		try {
-			prop.load(EmailControllerByFile.class.getClassLoader()
+			prop.load(EmailController.class.getClassLoader()
 					.getResourceAsStream("email.properties"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="head">
 				<img src="<%=basePath%>/resource/images/user.png" />
 			</div>
-			<form action="<%=basePath%>/login/login2">
+			<form action="<%=basePath%>/login/login">
 				<input type="text"  name="managerName" placeholder="UserName" >
 				<input type="password" name="managerPassword" placeholder="PassWord" >
 				<input type="text" name="validateCode" placeholder="ValidateCode" >
